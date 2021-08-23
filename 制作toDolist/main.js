@@ -4,7 +4,6 @@ const cpn2 = {
   props: {
     cunf: {
       type: Array,
-      default: ['322', '323']
     }
   },
   methods: {
