@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+  <p>
+    <input type="text" v-model="message"/>
+    <button @click="submit">提交</button>
+  </p>
+  <h2>未完成的计划：</h2>
+  <cpn2 :cunf="unf" @unfdel="delunf" @unfup="upfed"></cpn2>
+  <h2>已完成的计划：</h2>
+  <cpn3 :cfed="fed" @feddel="delfed" @fedup="upunf"></cpn3>
+</div>
+
+
+
+
+
+<template id="cpn2">
+  <div v-for="(item,index) in cunf">
+    <button @click="unfdel(index)">删除</button>
+    <button @click="unfup(index)">未完成</button>
+    <span>{{ item }}</span>
+  </div>
+</template>
+
+
+
+<template id="cpn3">
+  <div v-for="(item, index) in cfed">
+    <button @click="feddel(index)">删除</button>
+    <button @click="fedup(index)">已完成</button>
+    <span>{{ item }}</span>
+  </div>
+</template>
+
+
+
+<script src="../js/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
